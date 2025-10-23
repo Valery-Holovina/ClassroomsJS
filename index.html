@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classroom Manager</title>
+ <style>
+  body {
+    height: 100%;
+    margin: 50px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; 
+    background: linear-gradient(to left, rgb(199, 217, 242), rgb(181, 162, 242));
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  table {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-collapse: separate;
+    border-radius: 15px;
+    border-spacing: 0;
+    border: 1px solid rgba(25, 21, 21, 0.376);
+    overflow: hidden;
+    width: 90%;
+    margin: 15px auto; 
+  }
+
+  th, td {
+    border-bottom: 1px solid rgba(40, 34, 34, 0.2);
+    padding: 12px;
+    text-align: center;
+  }
+
+  tr:nth-child(even) td {
+    background-color: rgba(240, 240, 240, 0.7);
+  }
+
+  .custom-btn, .custom-btn2, .control-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 8px 15px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+  }
+
+  .custom-btn {
+    background: linear-gradient(135deg, #86c78b, #3fbe7a);
+  }
+  .custom-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(33, 35, 31, 0.3);
+  }
+
+  .custom-btn2 {
+    background: linear-gradient(135deg, #ef7777, #d84444);
+  }
+  .custom-btn2:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 27, 27, 0.3);
+  }
+
+  .control-btn {
+    background: linear-gradient(135deg, #84a6e1, #3a6bd4);
+    margin: 5px;
+  }
+
+  .form-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  input {
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    text-align: center; 
+  }
+
+  #tableContainer {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+  }
+</style>
+
+</head>
+<body>
+
+  <div class="form-container">
+    <input type="number" id="idInput" placeholder="ID" min="1">
+    <input type="text" id="nameInput" placeholder="Name">
+    <input type="number" id="placesInput" placeholder="Places" min="1">
+    <input type="text" id="facultyInput" placeholder="Faculty">
+    <button class="custom-btn" onclick="addFromForm()">Add Classroom</button>
+  </div>
+
+  <div style="text-align:center;">
+    <button class="control-btn" onclick="sortByName()">Sort by Name</button>
+    <button class="control-btn" onclick="sortByPlaces()">Sort by Places</button>
+    <button class="control-btn" onclick="printAll()">Show All</button>
+  </div>
+
+  <div id="tableContainer"></div>
+
+    <div id="chartContainer" style="display:flex; justify-content:center; margin:20px 0;">
+  <canvas id="myChart" width="500" height="200"></canvas>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js" ></script>
+</body>
+</html>
